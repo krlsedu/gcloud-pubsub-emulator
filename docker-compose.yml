@@ -1,0 +1,16 @@
+version: '3'
+
+networks:
+  backend:
+    external: true
+
+services:
+  csctracker:
+    container_name: pubsub
+    hostname: pubsub
+    image: krlsedu/pubsub
+    restart: unless-stopped
+    networks:
+      - backend
+    ports:
+      - 8085:8085
